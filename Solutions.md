@@ -47,7 +47,7 @@ print(a)
 #### 10. Find indices of non-zero elements from [1,2,0,0,4,0]
 ```python
 a = np.array([1, 2, 0, 0, 4, 0])
-print(a[a != 0])
+print(np.nonzero(a))
 ```
 #### 11. Create a 3x3 identity matrix
 ```python
