@@ -125,4 +125,84 @@ Solution 2:
 print(np.unravel_index(99, (6,7,8), order='C'))
 print(np.unravel_index(99, (6,7,8))
 ```
-
+#### 21. Create a checkerboard 8x8 matrix using the tile function
+```python
+a = np.array([[1,0],[0,1]])
+b = np.tile(a, (4, 4))
+print(b)
+```
+#### 22. Normalize a 5x5 random matrix
+```python
+a = np.random.random((5, 5))
+a = (a - a.mean()) / a.std()
+print(a)
+```
+#### 23. Create a custom dtype that describes a color as four unsigned bytes (RGBA)
+```python
+color = np.dtype([('r', np.ubyte), ('g', np.ubyte), ('b', np.ubyte), ('a', np.ubyte)])
+```
+#### 24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) 
+```python
+a = np.dot(np.ones((5,3), np.ones(3,2))
+# Alternative solution
+a = np.ones((5,3)) @ np.ones((3,2))
+print(a)
+````
+#### 25. Given a 1D array, negate all elements which are between 3 and 8, in place. 
+```python
+a = np.arange(12)
+a[(a > 3) & (a < 8)] *= -1
+```
+#### 26. What is the output of the following script?
+```python
+# Author: Jake VanderPlas
+print(sum(range(5)), -1)
+from numpy import *
+print(sum(range(5)), -1)
+```
+```
+9
+10
+```
+#### 27. Consider an integer vector Z, which of these expressions are legal? 
+```python
+Z**Z
+2 << Z >> 2
+Z <- Z
+1j*Z
+Z/1/1
+Z<Z>Z
+```
+```python
+Z**Z legal
+2 << Z >> 2 legal
+Z <- Z legal
+1j*Z legal
+Z/1/1 legal
+Z<Z>Z illegal
+```
+#### 28. What are the result of the following expressions?
+```python
+np.array(0) / np.array(0)
+np.array(0) // np.array(0) # floor divide
+np.array([np.nan]).astype(int).astype(float)
+```
+```python
+nan
+0
+array([-2.14748365e+09])
+```
+#### 29. How to round away from zero a float array ?
+```python
+a = np.random.uniform(-10, +10, 10)
+# Solution 1: Readable but not so efficient
+print(np.where(a > 0, np.ceil(a), np.floor(a)))
+# Solution 2: More efficient
+print(np.copysign(np.ceil(np.abs(a)), a))
+```
+#### 30. How to find common values between two arrays? 
+```python
+a = np.random.randint(0, 10, 10)
+b = np.random.randint(0, 10, 10)
+print(np.intersect1d(a, b))
+```
