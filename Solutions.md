@@ -227,6 +227,64 @@ nan != 1j False
 ```
 #### 33. How to get the dates of yesterday, today and tomorrow?
 ```python
+yesterday = np.datetime64('today') - np.timedelta64(1, 'D')
+today = np.datetime64('today')
+tomorrow = np.datetime64('today') + np.timedelta64(1, 'D')
+```
+#### 34. How to get all the dates corresponding to the month of July 2016?
+```python
+a = np.arange('2016-07', '2016-08', dtype='datetime[D]')
+print(a)
+```
+#### 35. How to compute ((A+B)\*(-A/2)) in place (without copy)?
+```python
+a = np.ones((3, 3))
+b = np.ones((3, 3)) * 3
+np.add(a, b, out=b)
+np.divide(a, -2, out=a)
+np.multiply(a, b, out=a)
+```
+#### 36. Extract the integer part of a random array of positive numbers using 4 different methods
+```python
+a = np.random.uniform(1, 5, 3)
+# Solution 1
+print(np.floor(a))
+# Solution 2
+print(a.astype(int))
+# Solution 3
+print(np.trunc(a))
+# Solution 4
+print(a - a%1)
+# Solution 5
+print(a // 1)
+```
+#### 37. Create a 5x5 matrix with row values ranging from 0 to 4
+```python
+# Solution 1
+a = np.tile(np.arange(5), (5, 1))
+print(a)
+# Solution 2
+a = np.zeros((5,5))
+a += np.arange(5)
+print(a)
+```
+#### 38. Consider a generator function that generates 10 integers and use it to build an array
+```python
+def generator():
+   for x in range(10):
+      yield x
+a = np.fromiter(genertor(), dtype=float, count=-1)
+print(a)
+```
+#### 39. Create a vector of size 10 with values ranging from 0 to 1, both excluded
+```python
+a = np.linspace(0,1,11,endpoint=False)[1:]
+print(a)
+```
+#### 40. Create a random vector of size 10 and sort it 
+```python
+a = np.random.random(10)
+a.sort()
+print(a)
 ```
 
-```
