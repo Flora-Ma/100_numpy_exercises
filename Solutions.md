@@ -206,3 +206,27 @@ a = np.random.randint(0, 10, 10)
 b = np.random.randint(0, 10, 10)
 print(np.intersect1d(a, b))
 ```
+#### 31. How to ignore all numpy warnings (not recommended)? 
+```python
+# Dangerous mode on
+defaults = np.seterr(all='ignore')
+np.geterr()
+# Back to safe mode
+_ = np.seterr(**defaults)
+np.geterr()
+# Alternative solution
+ with np.errstate(all='ignore'):
+    np.geterr()
+```
+#### 32. Is the following expressions true? 
+```python
+np.sqrt(-1) == np.emath.sqrt(-1)
+```
+```python
+nan != 1j False
+```
+#### 33. How to get the dates of yesterday, today and tomorrow?
+```python
+```
+
+```
