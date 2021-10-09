@@ -287,4 +287,40 @@ a = np.random.random(10)
 a.sort()
 print(a)
 ```
-
+#### 41. How to sum a small array faster than np.sum?
+```python
+a = np.arange(3,6)
+print(np.add.reduce(a))
+```
+#### 42. Consider two random array A and B, check if they are equal
+```python
+a = np.random.random((4, 5))
+b = a
+# Solution 1
+print(np.array_equal(a, b))
+# Solution 2
+print(np.allclose(a, b))
+```
+#### 43. Make an array immutable (readonly)
+```python
+a = np.ones(5)
+a.flags.writeable = False
+a[0] = 2
+```
+#### 44. Consider a random 10x2 matrix representing cartesian coordinates, convert them to polar coordinates
+```python
+a = np.random.random((10, 2))
+X,Y = a[:, 0], a[:, 1]
+R = np.sqrt(X**2 + Y**2)
+T = np.arctan2(Y, X)
+print(R)
+print(T)
+```
+#### 45. Create random vector of size 10 and replace the maximum value by 0
+```python
+a = np.random.random(10)
+# Solution 1
+a[a == a.max()] = 0
+# Solution 2 np.argmax(a)
+a[a.argmax()] = 0 
+```
