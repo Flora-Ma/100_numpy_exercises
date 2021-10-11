@@ -233,7 +233,7 @@ tomorrow = np.datetime64('today') + np.timedelta64(1, 'D')
 ```
 #### 34. How to get all the dates corresponding to the month of July 2016?
 ```python
-a = np.arange('2016-07', '2016-08', dtype='datetime[D]')
+a = np.arange('2016-07', '2016-08', dtype='datetime64[D]')
 print(a)
 ```
 #### 35. How to compute ((A+B)\*(-A/2)) in place (without copy)?
