@@ -324,3 +324,36 @@ a[a == a.max()] = 0
 # Solution 2 np.argmax(a)
 a[a.argmax()] = 0 
 ```
+#### 46. Create a structured array with x and y coordinates covering the [0,1]x[0,1] area
+```python
+a = np.zeros((5,5), dtype=[('x', float), ('y', float)])
+a['x'], a['y'] = np.meshgrid(np.linspace(0,1,5), np.linspace(0,1,5))
+```
+#### 47. Given two arrays, X and Y, construct the Cauchy matrix C (Cij =1/(xi - yj))
+```python
+x = np.arange(8)
+y = x + 0.2
+c = 1 / np.substract.outer(x, y)
+print(np.linalg.det(c))
+```
+#### 48. Print the minimum and maximum representable value for each numpy scalar type
+```python
+for d in [np.int8, np.int32, np.int64]:
+    print(np.iinfo(d).min)
+    print(np.iinfo(d).max)
+for d in [np.float32, np.float64]:
+    print(np.finfo(d).min)
+    print(np.finfo(d).max)
+```
+#### 49. How to print all the values of an array?
+```python
+np.set_printoptions(threshold=float("inf"))
+print(np.zeros((40, 40)))
+```
+#### 50. How to find the closest value (to a given scalar) in a vector?
+```python
+v = np.random.uniform(0, 100, 50)
+s = 50
+index = np.abs(v - s).argmin()
+print(v[index])
+```
