@@ -357,3 +357,8 @@ s = 50
 index = np.abs(v - s).argmin()
 print(v[index])
 ```
+#### 51. Create a structured array representing a position (x,y) and a color (r,g,b) 
+```python
+a = np.zeros(5, dtype=[('position', [('x', float), ('y', float)]), ('color', [('r', float), ('g', float), ('b', float)])])
+print(a)
+```
